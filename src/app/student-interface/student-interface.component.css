@@ -1,0 +1,239 @@
+
+@import "primeicons/primeicons.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+
+
+.sidenavbar{
+    z-index: 1000;
+    position:fixed;
+    top:60px;
+    left:0px;
+    height:100%;
+    width:240px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mainContent{ 
+    margin-left:240px;
+    margin-top:60px;
+    margin-right:180px;
+    padding:20px 10px;
+}
+
+.header{
+    position:fixed;
+    height:60px;
+    width:100%;
+    top:0;
+    left:0;
+    overflow:hidden;
+    box-sizing: border-box;
+    z-index: 1;
+    background-color: #174873;
+    display :flex;
+    flex-direction: row;
+  
+     
+}
+
+.header img{
+
+    height:60px;
+    width:90px;
+    margin:0 0 0 450px;
+   
+   
+    
+}
+
+.header h1{
+    font-family:lucida;
+    font-weight: lighter;
+  
+   margin:15px 0px 0px 30px;
+    
+}
+
+.collgelogo{
+
+    height:60px;
+    width:400px;
+    margin-left:350px;
+}
+
+.profilebar{
+    
+    display:flex;
+    height:80px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0,0.1);
+    margin-top:10px;
+    background-color: aliceblue;
+}
+    
+
+.avatar{
+
+    height:80px;
+    width:60px;
+    padding-top:13px;
+    padding-left:3px;
+    
+}
+
+.name{
+
+    height:80px;
+    width:180px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    padding-top:5px;  
+}
+
+.logout{
+
+    height:40px;
+    width:240px;
+    border:1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position:fixed;
+    bottom:5px;
+    left:0px;
+    border-radius: 10px;
+    overflow: hidden;
+    
+  
+}
+
+.logout button{
+    height:40px;
+    width:240px;
+    border-radius: 10px;
+    border:none;
+    text-align: left;
+    padding-left: 30px;
+    background-color: aliceblue;
+    cursor: pointer;
+}
+
+.logout :hover{
+    background-color: #174873;
+    color:white;
+}
+
+.sidebarLinks{
+    background-color: aliceblue;
+    width:240px;
+    position:fixed;
+    top:155px;
+    bottom:48px;
+    left:0px;
+    border:1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius:10px;
+    overflow: hidden;
+}
+
+.sidelinks{
+    background-color:aliceblue;
+    width:240px;
+    height:40px;
+    border:none;
+    border-radius:10px;
+    box-sizing:border-box;
+    overflow: hidden;
+    margin-bottom: 5px;
+   
+    
+}
+.sidelinks button{
+
+    height:40px;
+    width:240px;
+    border-radius: 10px;
+    border:none;
+    text-align: left;
+    padding-left: 30px;
+    background-color: aliceblue;
+    cursor: pointer;
+}
+
+.sidelinks :hover{
+    background-color: #174873;
+    color:white;
+}
+
+.rightsidecontainer{
+
+    position:fixed;
+    top:60px;
+    right:0px;
+    height:100%;
+    width:180px;
+    background-color:white;
+    overflow:hidden;
+}
+
+.sideneclogo{
+
+    width:180px;
+    height:180px;
+    border:1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 0px;
+
+}
+
+.activeRoute{
+
+    color:#174873;
+    text-decoration: underline;
+}
+
+.dropdown_year{
+
+    display: block;
+    height:100px;
+    width:240px;
+    box-sizing: border-box;
+}
+
+.dropdown_year .year{
+    height:25px;
+    width:240px;
+}
+
+.dropdown_year .year button {
+
+    margin-left: 100px;
+    height:25px;
+    width:140px;
+    border:none;
+    background-color: aliceblue;
+    border-radius:5px;
+
+}
+
+.dropdown_year .year  :hover{
+    background-color:#174873;
+    color:white;
+}
+
+
+
+
+
+
+
+  

@@ -1,0 +1,89 @@
+
+<!--header starts here-->
+<div class="header">
+  
+  <img src="../../assets/eme.png"> 
+  <h1 style="color:white">E-Mentor</h1>
+
+
+</div>
+
+<!--header ends here-->
+
+<!--Side nav bar starts here--> 
+
+<div class="sidenavbar">
+
+            <div class="profilebar">
+                <div class="avatar"><p-avatar image="../../assets/userdefaultAvatar.jpg" styleClass="mr-2" size="large" shape="circle"></p-avatar>
+                </div>
+                  <div class="name">
+                    <span ><small>Rongala Gangadhar</small></span><br>
+                    <span ><small>21471A0521</small></span>
+                  </div>
+            </div>
+
+            <div class="sidebarLinks">
+
+              <div class="sidelinks">
+                
+                <button routerLink="./profile" routerLinkActive="activeRoute"><b><i class="bi bi-person-vcard"></i>&nbsp;&nbsp;&nbsp;MY PROFILE</b></button>
+
+              </div>
+              <div class="sidelinks" >
+                <button routerLink="./students" routerLinkActive="activeRoute"><b><i class="bi bi-people-fill"></i>&nbsp;&nbsp;&nbsp;MY STUDENTS </b> </button>
+                
+
+              </div>
+
+              <div class="sidelinks">
+                <button routerLink="./institution" routerLinkActive="activeRoute"><b><i class="bi bi-bank"></i>&nbsp;&nbsp;&nbsp;MY INSTITUTION</b></button>
+
+              </div>
+              <div class="sidelinks">
+                <button  (click)="dropdownVisible = (!dropdownVisible)" ><b><i class="bi bi-calendar2-plus"></i>&nbsp;&nbsp;&nbsp;ADD SEMESTER DATA <i class="bi bi-caret-down-fill"></i></b></button>
+
+              </div>
+              <div class="dropdown_year" *ngIf="dropdownVisible" >
+                
+                <div class="year"><button routerLink="./externals" routerLinkActive="activeRoute"><b>EXTERNALS</b></button></div>
+                <div class="year"><button routerLink="./internals" routerLinkActive="activeRoute"><b>INTERNALS</b></button></div>
+                <div class="year"><button routerLink="./attendance" routerLinkActive="activeRoute"><b>ATTENDANCE</b></button></div>
+              
+              </div>
+
+            </div>
+          
+            <div class="logout" >
+
+                <button routerLink="/"><b><i class="pi pi-sign-out"></i>&nbsp;&nbsp;&nbsp;Logout</b></button>
+
+            </div>
+               
+</div>
+
+
+<!--side nav bar ends here-->
+
+<!--main content starts here-->
+
+<div class="mainContent"> 
+  
+  <router-outlet></router-outlet>
+ 
+
+</div>
+
+<!--main content ends here-->
+
+<!--right side box starts here-->
+
+<div class="rightsidecontainer">
+  <div class="sideneclogo">
+
+    <img src="../../assets/necSideLogo.png" height="180px" width="180px">
+    
+  </div>
+
+</div>
+

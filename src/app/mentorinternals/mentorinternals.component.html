@@ -1,0 +1,51 @@
+<div class="total">
+
+
+<div class="fetch">
+    <form #mineForm="ngForm"> 
+
+        <div class="roww"> 
+
+    <div class="">
+        <span class="p-float-label">
+            <p-dropdown [options]="years" [(ngModel)]="selectedYear" placeholder="Year" optionLabel="name" inputId="year" [required]="true" name="year"></p-dropdown>
+            <label for="year"> Year</label>
+        </span>
+    </div>
+
+    <div class="">
+        <span class="p-float-label">
+            <p-dropdown [options]="semesters" [(ngModel)]="selectedSemester" placeholder="Semester" optionLabel="name" inputId="semester" [required]="true" name="semester"></p-dropdown>
+            <label for="semester"> Semester</label>
+        </span>
+    </div>
+
+    <div class="">
+        <span class="p-float-label">
+            <p-dropdown [options]="rollno" [(ngModel)]="selectedRollno" placeholder=" HallTicket No"  inputId="rollno" [required]="true" name="rollno" ></p-dropdown>
+            <label for="rollno"> Hallticket No</label>
+        </span>
+    </div>
+
+    <div class="online">
+        <button pButton [disabled]="mineForm.invalid">Fetch Data</button>
+    </div></div>
+</form>
+    
+
+</div>
+
+
+
+<div class="showStudent">
+    <ul>
+        <li>HALLTICKET NO : <span>{{selectedRollno}}</span></li>
+        <li>NAME : <span>{{verifyDetail[0].FIRSTNAME}} {{verifyDetail[0].LASTNAME}}</span></li>
+        
+    </ul>
+</div>
+
+
+
+
+</div>

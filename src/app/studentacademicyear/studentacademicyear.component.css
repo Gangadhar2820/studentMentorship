@@ -1,0 +1,37 @@
+
+.results{
+
+    z-index: 0;  
+}
+
+
+td{
+    border:1px solid green;
+    font-size: smaller;
+}
+
+th{
+    width:400px;
+    font-size:small;
+}
+
+
+.tinfo{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+}
+
+.cred{
+    font-size: small;
+    margin:0 0 0 auto;
+}
+.cred span{
+    margin-right: 30px;
+    color:blue;
+}
+
+
+
+
+

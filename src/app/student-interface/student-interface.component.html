@@ -1,0 +1,91 @@
+
+<!--header starts here-->
+<div class="header">
+  
+  <img src="../../assets/eme.png"> 
+  <h1 style="color:white">E-Mentor</h1>
+
+
+</div> 
+
+<!--header ends here-->
+
+<!--Side nav bar starts here-->
+
+<div class="sidenavbar">
+
+            <div class="profilebar">
+                <div class="avatar"><p-avatar image="../../assets/bhargav.jpg" styleClass="mr-2" size="large" shape="circle"></p-avatar>
+                </div>
+                  <div class="name">
+                    <span ><small>{{loggedStudent.FIRSTNAME}} {{loggedStudent.LASTNAME}}</small></span><br>
+                    <span ><small>{{loggedStudent.HALLTICKETNO}}</small></span>
+                  </div>
+            </div>
+
+            <div class="sidebarLinks">
+
+              <div class="sidelinks">
+                
+                <button routerLink="profile" routerLinkActive="activeRoute"><b><i class="bi bi-person-vcard"></i>&nbsp;&nbsp;&nbsp;MY PROFILE</b></button>
+
+              </div>
+              <div class="sidelinks" >
+                <button (click)="dropdownVisible = (!dropdownVisible)"><b><i class="bi bi-calendar"></i>&nbsp;&nbsp;&nbsp;ACADEMIC YEAR  <i class="bi bi-caret-down-fill"></i></b> </button>
+                
+
+              </div>
+              <div class="dropdown_year" *ngIf="dropdownVisible" >
+                
+                <div class="year"><button routerLink="year/1" routerLinkActive="activeRoute"><b>1st Year</b></button></div>
+                <div class="year"><button routerLink="year/2" routerLinkActive="activeRoute"><b>2nd Year</b></button></div>
+                <div class="year"><button routerLink="year/3" routerLinkActive="activeRoute"><b>3rd Year</b></button></div>
+                <div class="year"><button routerLink="year/4" routerLinkActive="activeRoute"><b>4th Year</b></button></div>
+              
+              </div>
+              <div class="sidelinks">
+                <button routerLink="institution" routerLinkActive="activeRoute"><b><i class="bi bi-bank"></i>&nbsp;&nbsp;&nbsp;MY INSTITUTION</b></button>
+
+              </div>
+              <div class="sidelinks">
+                <button routerLink="mentor" routerLinkActive="activeRoute"><b><i class="bi bi-person-square"></i>&nbsp;&nbsp;&nbsp;MY MENTOR</b></button>
+
+              </div>
+
+            </div>
+          
+            <div class="logout" >
+
+                <button routerLink="/"><b><i class="pi pi-sign-out"></i>&nbsp;&nbsp;&nbsp;Logout</b></button>
+
+            </div>
+               
+</div>
+
+
+<!--side nav bar ends here-->
+
+<!--main content starts here-->
+
+<div class="mainContent">
+  
+  <router-outlet></router-outlet>
+
+  <p-toast [position]="'top-center'" ></p-toast>
+ 
+
+</div>
+
+<!--main content ends here-->
+
+<!--right side box starts here-->
+
+<div class="rightsidecontainer">
+  <div class="sideneclogo">
+
+    <img src="../../assets/necSideLogo.png" height="180px" width="180px">
+    
+  </div>
+
+</div>
+

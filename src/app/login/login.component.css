@@ -1,0 +1,92 @@
+
+@import "primeicons/primeicons.css";
+
+
+*{
+    font-family: serif;
+}
+
+.body-container{
+    margin:30px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:20px 10px;
+    background-color: aliceblue;
+}
+
+.row{
+    margin-top: 20px;;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width:450px;  
+}
+
+.student{
+    width:50%;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.mentor{
+    width:50%;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.student:hover {
+    transition: 0.2s;
+    transform: translatey(-5px);
+}
+
+.mentor:hover {
+    transition: 0.2s;
+    transform: translateY(-5px);
+}
+
+  .registerdiv{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .verifydiv{   
+    width:350px;
+  }
+
+  .validdiv{
+    width:100%;
+    padding:10px;
+    border-top:1px solid silver;
+    border-bottom:1px solid silver ;
+  }
+
+  .profileSection{
+    width:100%;
+    height:170px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .previewProfile{
+    height:140px;
+    width:140px;
+  }
+
+  .previewProfile img{
+    height:115px;
+    width:100px;
+  }
+
+  .profileUpload{
+    margin-left: 50px;
+  }
+
+
+   
+  
+  
+  

@@ -1,0 +1,47 @@
+ <div class="profilecard">
+    <div class="photo">
+        <img src="../../assets/userdefaultAvatar.jpg" height="100px" width="90px">
+    </div>
+    <div class="data">
+
+        <table>
+            <caption><strong>{{loggedStudent.FIRSTNAME}} {{loggedStudent.LASTNAME}}</strong><span class="status"><small><i class="bi bi-circle-fill"></i>&nbsp;&nbsp;Active</small></span></caption>
+                <tr><th>Admission No</th><td>:&nbsp;&nbsp; {{loggedStudent.ADMISSIONNO}}</td></tr>
+                <tr><th>Roll No</th><td>:&nbsp;&nbsp;  {{loggedStudent.HALLTICKETNO}}</td></tr>
+                <tr><th>Department</th><td>:&nbsp;&nbsp;  {{loggedStudent.DEPARTMENT}}</td></tr>
+                <tr><th>Section</th><td>:&nbsp;&nbsp; Section {{loggedStudent.SECTION}}</td></tr>
+                <tr><th>Course Name</th><td>:&nbsp;&nbsp;  {{loggedStudent.COURSE}}</td></tr>
+                <tr><th>College </th><td>:&nbsp;&nbsp;  {{loggedStudent.COLLEGE}}</td></tr>
+          
+        </table>
+        
+    </div>
+    
+ </div>
+ <div class="studentinfo">
+    <div class="profile">
+        <span style="font-size:20px;color:grey;"> <i class="bi bi-person-circle"></i>&nbsp;&nbsp;Profile</span>
+    </div>
+    <div class="profileinfo">
+
+        <table>
+            <tr><td>Firstname</td><td>:&nbsp;&nbsp; {{studentPersonalData.LASTNAME}} </td></tr>
+                <tr><td>Lastname</td><td>:&nbsp;&nbsp; {{studentPersonalData.FIRSTNAME}} </td></tr>
+                <tr><td>DOB</td><td>:&nbsp;&nbsp; {{studentPersonalData.DATEOFBIRTH}} </td></tr>
+                <tr><td>Age</td><td>:&nbsp;&nbsp;  </td></tr>
+                <tr><td>Gender</td><td>:&nbsp;&nbsp;{{studentPersonalData.GENDER}} </td></tr>
+                <tr><td>Father's Name </td><td>:&nbsp;&nbsp; {{studentPersonalData.FATHERNAME}} </td></tr>
+                <tr><td>Mother's Name </td><td>:&nbsp;&nbsp; {{studentPersonalData.MOTHERNAME}} </td></tr>
+                <tr><td>Phone No </td><td>:&nbsp;&nbsp;  {{studentPersonalData.PHONENO}}</td></tr>
+                <tr><td>Parent Phone No </td><td>:&nbsp;&nbsp;  {{studentPersonalData.PARENTPHONENO}}</td></tr>
+                <tr><td>Email </td><td>:&nbsp;&nbsp;  {{studentPersonalData.EMAIL}}</td></tr>
+                <tr><td>Address </td><td>:&nbsp;&nbsp;  {{studentPersonalData.ADDRESS}}</td></tr>
+                <tr><td>City </td><td>:&nbsp;&nbsp;  {{studentPersonalData.CITY}}</td></tr>
+                <tr><td>State </td><td>:&nbsp;&nbsp;  {{studentPersonalData.STATE}}</td></tr>
+                <tr><td>Pin Code  </td><td>:&nbsp;&nbsp;  {{studentPersonalData.PINCODE}}</td></tr>
+
+          
+        </table>
+
+    </div>
+ </div>

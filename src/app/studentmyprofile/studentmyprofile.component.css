@@ -1,0 +1,68 @@
+*{
+    padding:0px;
+    margin:0px;
+    font-family: sans-serif;
+}
+
+.profilecard{
+
+    display: flex;
+    flex-direction: row;
+    background-color: #174873;
+    
+}
+.photo{
+
+    margin-top: 10px;
+    margin-left:10px;
+}
+
+.data{
+
+    width:inherit;
+    margin-top:10px;
+    color:white;
+    
+}
+
+.status{
+    float: right;
+    margin-right:40px;
+    border:1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: green;
+    padding:3px 10px;
+    border-radius: 20px;
+}
+
+td{
+    width:50%;
+    height:fit-content;
+    padding:10px 0px;
+
+}
+
+th{
+    text-align: left;
+    padding: 10px 0px 10px 100px;
+    font-weight: normal;
+}
+
+.studentinfo{
+    padding-top:10px;
+    
+}
+
+.profile{
+
+    border:1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding:5px 0px 5px 10px;
+
+}
+
+.profileinfo{
+    margin-left:5px;
+}
+
+ 

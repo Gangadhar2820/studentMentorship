@@ -1,0 +1,75 @@
+.total{
+    margin-top:20px;
+}
+
+.fetch{
+    
+    border:1px solid #ccc;
+    box-shadow:0 2px 4px rgba(0,0,0,0.1);
+    padding:25px 10px 10px 10px;
+    margin-bottom: 20px;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0px;
+    background-color: aliceblue;
+} 
+ 
+.roww{
+
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;  
+}
+
+ul{
+    list-style-type: none;
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.showStudent{
+   
+    border-left:1px solid #ccc;
+    border-right:1px solid #ccc;
+    box-shadow:0 2px 4px rgba(0,0,0,0.1);
+    padding:10px;
+    margin-bottom: 20px;
+    background-color: aliceblue;
+    
+}
+
+.showStudent ul li{
+    font-size: small;
+
+}
+
+.showStudent ul li span{
+    color:blue;
+}
+
+.tableform{
+
+    padding:10px 0px 0px 10px;
+    border: 1px solid #ccc;
+    border-radius:0 0 10px 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-top:none;
+    background-color: aliceblue;
+}
+
+
+th{
+    font-size: small;
+    
+}
+
+td{
+    font-size: 12px;
+}
+
+.formbuttons{
+    margin:20px 20px 10px 10px;;
+    display: flex;
+    justify-content: flex-end;
+}
+

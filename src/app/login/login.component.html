@@ -1,0 +1,254 @@
+
+<!--login body section starts -->
+<div class="body-container" >
+    <div >
+        <p-card header="Login As" >
+            <div class="row">
+                <div class="student" (click)="showDialog('student')">
+                    <p-card pRipple class="my-card" [style]="{backgroundColor:'aliceblue'}">
+                        <h3 style="text-align: center;">Student</h3>
+                    </p-card>
+                </div>
+                <p-divider layout="vertical" >
+                    <b>OR</b>
+                </p-divider>
+                <div class="mentor" (click)="showDialog('mentor')">
+                    <p-card pRipple  [style]="{backgroundColor:'aliceblue'}">
+                        <h3 style="text-align: center;">Mentor</h3>
+                    </p-card>
+                </div>
+            </div>
+        </p-card>
+    </div>  
+</div>
+
+<!-- login body section ends-->
+
+<!--login dynamic dialogs section starts-->
+
+<div>
+
+    <!--student login dialog starts-->
+    <p-dialog header="Login as Student" [(visible)]="studentDialogVisible" [modal]="true" [style]="{width: '30vw'}" (onHide)="onStuLogDialogHide()">
+    
+      <form [formGroup]="studentLoginForm"   autocomplete="off" >
+        <br>
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon">
+                <i class="pi pi-user"></i>
+            </span>
+            <input pInputText placeholder="Hallticket" formControlName="hallticket"  required>
+        </div><br><br>
+
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon">
+                <i class="pi pi-lock"></i> 
+            </span>
+            <input pInputText type='password'  placeholder="Password" formControlName="password" required>
+        </div><br><br>
+    
+        <p-button label="Login"  [disabled]="studentLoginForm.invalid" styleClass="p-button-raised p-button-text p-button-primary" [style]="{width:'100%'}"
+         [type]="'button'" (click)="studentLoginSubmit()"></p-button>
+        
+     </form> 
+     
+    </p-dialog>
+    <p-toast [position]="'top-right'" [style]="{width:'370px',fontSize:'16px'}" [preventOpenDuplicates]="true"></p-toast>
+
+    <!--student login dialog ends-->
+ 
+    <!--mentor login dialog starts-->
+
+    <p-dialog header="Login as Mentor" [(visible)]="mentorDialogVisible" [modal]="true"  [style]="{width: '40vw'}" (onHide)="onMenLogDialogHide()">
+        <br>
+        <form [formGroup]="mentorLoginForm"  autocomplete="off">
+           
+             <div class="p-inputgroup">
+                 <span class="p-inputgroup-addon">
+                     <i class="pi pi-user"></i>
+                 </span>
+                 <input pInputText placeholder="Username" formControlName="username" required>
+             </div><br>
+     
+             <div class="p-inputgroup">
+                 <span class="p-inputgroup-addon">
+                     <i class="pi pi-lock"></i>
+                 </span>
+                 <input pInputText [type]="'password'"  placeholder="Password" formControlName="password" required>
+             </div><br>
+         
+             <p-button label="Login" [disabled]="mentorLoginForm.invalid" styleClass="p-button-raised p-button-text p-button-primary" [style]="{width:'100%'}" [type]="'button'" (click)="mentorLoginSubmit()" ></p-button>
+            <br><div style="float:right;"><p-button  styleClass="p-button-link" (click)="showDialog('password')"><small>Forgot Password</small></p-button></div>
+
+             <p-divider type="solid" [align]="'left'" >
+                Dont have an Account ?
+            </p-divider>
+            <p-button label="Signup" styleClass="p-button-raised p-button-text p-button-success" [style]="{width:'100%'}" (click)="showDialog('register')"></p-button>
+
+     
+           </form>
+    </p-dialog>
+
+    <!--mentor login dialog ends-->
+
+    <!--mentor forgot password dialog starts-->
+
+    <p-dialog header="Forgot Password" [(visible)]="passwordDialogVisible" [modal]="true" [style]="{width: '40vw'}" (onHide)="onMenPassDialogHide()">
+   
+      <div >
+      <p-card [style]="{backgroundColor:'aliceblue'}">
+
+        <div  class="verifydiv">
+
+            <form [formGroup]="mentorPasswordVerifyForm"  autocomplete="off">
+    
+                <div class="p-inputgroup">
+                    <input type="email" pInputText placeholder="Email" formControlName="verifyemail" required>
+                    <button [type]="'button'" (click)="mentorPasswordVerifySubmit()" [disabled]="VerifiedValue" [loading]="verifyLoading" pButton [icon]=verifyIcon [class]=verifyClass > {{VerifyLabel}}</button>
+                </div>
+                <span *ngIf="!VerifiedValue && !verifyShowWarn" [ngStyle]="{margin:'80px'}"><small>Enter registered email</small></span>
+                <span *ngIf="verifyShowWarn"><small [ngStyle]="{color:'red'}"><strong> ' {{verifyWarnText}} ' </strong>is not recognised as an existing User's mail.</small></span>
+    
+            </form >
+        </div>
+        
+        <div *ngIf="VerifiedValue">
+         <br>
+         <form [formGroup]="mentorNewPasswordForm" (ngSubmit)="mentorNewPasswordSubmit()">
+           <div class="field grid">
+              <label for="newpass" class="col-fixed" style="width:100px">New Password</label>
+              <div class="col">
+                <input id="newpass" type="password" (blur)="passwordMatch()" required formControlName="newpassword" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary">
+              </div>
+            </div>
+            <div class="field grid">
+              <label for="confirmpass" class="col-fixed"  style="width:100px" >Confirm Password</label>
+              <div class="col">
+                <input id="confirmpass" type="password" (blur)="passwordMatch()" formControlName="confirmpassword" required class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary">
+              </div>
+            </div>
+            <span *ngIf="!passwordEquals" style="margin-left:50px;"><small style="color:red">Confirm password doesn't match New Password</small></span><br>
+            <p-button [type]="'submit'"  label="Generate New Password" [disabled]="mentorNewPasswordForm.invalid || !passwordEquals" styleClass="p-button-raised p-button-text p-button-primary" [style]="{width:'80%','margin-left':'30px'}"></p-button>
+         </form>
+        </div>
+   
+     </p-card>
+     </div>
+
+    </p-dialog>
+
+    <!--mentor forgot password dialog ends-->
+
+    <!--mentor registration dialog starts -->
+
+    <p-dialog  header="Register as Mentor" [(visible)]="registerDialogVisible" [blockScroll]="true" [draggable]="false" [modal]="true" [style]="{width: '70vw','max-height':'500px' }" (onHide)="onMenRegDialogHide()">
+       
+       <div class="registerdiv">
+
+        <p-card [style]="{backgroundColor:'aliceblue'}">
+            <div  class="verifydiv">
+                <br>
+                <form  [formGroup]="mentorRegisterVerifyForm"  autocomplete="off">
+        
+                    <div class="p-inputgroup">
+                        <input type="text" pInputText placeholder="Enter Mentor Id" formControlName="verifymentorid" required>
+                        <button [type]="'button'" (click)="mentoridVerifySubmit()" [disabled]="VerifiedValue" [loading]="verifyLoading" pButton [icon]=verifyIcon [class]=verifyClass > {{VerifyLabel}}</button>
+                    </div>
+                    <span *ngIf="verifyShowWarn"><small [ngStyle]="{color:'red'}">Mentor doesn't exist with specified Id <strong> ' {{verifyWarnText}} '</strong></small></span>
+        
+                </form >
+            </div>
+        </p-card>
+       <br>
+
+     <p-card [style]="{backgroundColor:'aliceblue'}" *ngIf="VerifiedValue">
+
+        <div  class="validdiv">
+            <p-divider type="solid" [align]="'center'">Personal Info</p-divider>
+        <form [formGroup]="mentorRegistrationForm" autocomplete="off" (ngSubmit)="menRegFormSubmit()">     
+            <div class="card">
+                <div class="formgrid grid">
+                    <div class="field col">
+                        <label for="firstname">Firstname</label>
+                        <input id="firstname" formControlName="firstname" pInputText  type="text" class="text-base text-color surface-overlay  p-2 border-1 border-solid border-round appearance-none outline-none focus:border-primary w-full " required>
+                    </div>
+                    <div class="field col">
+                        <label for="lastname">Lastname</label>
+                        <input id="lastname" type="text" pInputText  formControlName="lastname" required class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+                    </div>
+                </div>
+    
+                <div class="formgrid grid">
+                    <div class="field col">
+                        <label for="phoneno">Phone No</label>
+                        <input id="phoneno"   type="number" formControlName="phoneno" pInputText required class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+                    </div>
+                    <div class="field col">
+                        <label for="altphoneno">Alternative Phone No</label>
+                         <input id="altphoneno" type="number" pInputText formControlName="altphoneno"  class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+                    </div>
+                </div>
+    
+                <p-divider type="solid" [align]="'center'">Account Info</p-divider>
+        
+                <div class="formgrid grid">
+                    <div class="field col">
+                        <label for="username">Username</label>
+                        <input id="username" type="text" pInputText formControlName="username" required class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+                    </div>
+                    <div class="field col">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" pInputText formControlName="email" required class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+                    </div>
+                </div>
+        
+                <div class="formgrid grid">
+                    <div class="field col">
+                        <label for="password">Password</label>
+                        <input id="password" type="password" (blur)="registerPassMatch()" pInputText formControlName="password" required class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+                    </div>
+                    <div class="field col">
+                        <label for="cpassword">Confirm Password</label>
+                        <input id="cpassword" type="password" (blur)="registerPassMatch()" pInputText formControlName="confirmpassword" required class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full">
+                    </div>
+                </div>
+                <span *ngIf="!registerPasswordEquals" style="margin-left:220px;"><small style="color:red">Confirm password doesn't match Password</small></span><br>
+          
+    
+                <p-divider type="solid" [align]="'left'">Upload Profile Picture</p-divider>
+    
+                <div class="profileSection">
+                    <div class="previewProfile">
+                        <img src="../../assets/userdefaultAvatar.jpg" alt="profile Image">
+                    </div>
+                    <div class="profileUpload">
+                        <input type="file" formControlName="profileimage" >
+                    </div>    
+                </div>
+                
+                <p-divider [type]="'solid'" [align]="'left'" >Note</p-divider>
+    
+                <p>1.Please fill out the required fields</p><br>
+                <p><input type="checkbox" formControlName="terms" required>  Agree Terms and Conditions </p><br><br>
+
+                <div class="formbuttons">
+                    <p-button label="Clear" styleClass="p-button-raised p-button-text p-button-danger" [disabled]="!mentorRegistrationForm.dirty" [type]="'reset'" [style]="{'float':'center','margin-left':'50px'}"></p-button>
+                    <p-button label="Submit"[disabled]="mentorRegistrationForm.invalid || !registerPasswordEquals" styleClass="p-button-raised p-button-text p-button-success" [type]="'submit'" [style]="{'float':'right','margin-right':'50px'}"></p-button>
+                </div><br><br>
+
+            </div>
+       
+            </form>
+
+            </div>
+
+            </p-card>
+        </div>
+    </p-dialog>
+
+    <!--mentor registration dialog ends-->
+</div>
+
+
+
+  
